@@ -20,7 +20,7 @@ def fib(n):
 
 # Set the size of the problem
 problemSize = 2
-for _ in range(7):
+for _ in range(5):
     # reset the number of calls for each run
     calls = 0
     start = time.time()
