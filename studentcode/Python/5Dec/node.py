@@ -153,6 +153,17 @@ class LinkedList:
             probe = probe.next
             index -= 1
 
+    def reverse2(self):
+        probe = self.head
+        prev = None
+        next = None
+        while probe != None:
+            next = probe.next
+            probe.next = prev
+            prev = probe
+            probe = next
+        self.head = prev
+
     def count_ocurrences(self, value):
         # initialize a count accumalator
         count = 0
@@ -190,6 +201,11 @@ linked_list.print_linked_list()
 
 print(linked_list.count_ocurrences('inserted'))
 print(linked_list.count_ocurrences('I should be the beginning'))
+print('\tBefore Reverse2:')
+linked_list.print_linked_list()
+linked_list.reverse2()
+print('\n\tAfter Reverse2:')
+linked_list.print_linked_list()
 
 '''
     # remove a node by index

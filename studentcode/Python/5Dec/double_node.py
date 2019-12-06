@@ -180,6 +180,18 @@ class DoubleLinkedList:
             if probeRev.next == probeFor and probeFor.prev == probeRev:
                 break
 
+    def reverse2(self):
+        # Swap node pointers so that the linked list reads in reverse
+        probe = self.tail
+        while probe != None:
+            temp = probe.next
+            probe.next = probe.prev
+            probe.prev = temp
+            probe = probe.next
+        temp = self.head
+        self.head = self.tail
+        self.tail = self.head
+
     def count_ocurrences(self, value):
         # initialize a count accumalator
         count = 0
@@ -257,3 +269,6 @@ print()
 doubly_linked_list.append('A')
 print(doubly_linked_list.count_ocurrences('A'))
 
+doubly_linked_list.reverse2()
+print()
+doubly_linked_list.print_linked_list()

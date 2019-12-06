@@ -50,7 +50,7 @@ class DoubleLinkedList(LinkedList):
             self.head.prev = newNode
             self.head = newNode
 
-        # 2 cases to consider index = 0 (prepend the data), index in the list and appends if tail is reached
+    # 2 cases to consider index = 0 (prepend the data), index in the list and appends if tail is reached
     def insert_node(self, index, data):
         # the index is 0, or less than 0, or the linked list is empty
         if index <= 0 or self.head is None:
@@ -71,7 +71,7 @@ class DoubleLinkedList(LinkedList):
             # finally set the current probe's next attribute to be the new node
             probe.next = newNode
 
-        # remove a node by index or value, default will be a value removal
+    # remove a node by index or value, default will be a value removal
     def delete_node(self, remove):
         # is this the only node
         if self.head.next is None or isinstance(remove, int) and remove <= 0:
@@ -174,7 +174,7 @@ class DoubleLinkedList(LinkedList):
 
 def makeDoubly(singlyLinkedList):
     # This function takes a SinglyLinkedList object and converts it to a DoublyLinkedList object
-    # first check that the object is of the SinglyLinkedList class, return the object back if not
+    # first check that the object is of the Singly LinkedList class, return the object back if not
     if isinstance(singlyLinkedList, LinkedList):
         # Instantiate a DoublyLinkedList
         double_linked_list = DoubleLinkedList()
