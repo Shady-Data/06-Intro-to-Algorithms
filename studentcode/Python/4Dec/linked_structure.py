@@ -1,3 +1,8 @@
+from node import Node
+head = None
+targetItem = None
+newItem = None
+index = 0
 '''
 **************** Linked Structures ****************
 
@@ -29,10 +34,10 @@ In python we set up nodes and linked structures by using references to objects
                 a loop as follows.
 '''
 
-                probe = head
-                while probe != None:
-                    # other code here
-                    probe = probe.next
+probe = head
+while probe != None:
+    # other code here
+    probe = probe.next
 '''
 
 - Searching - The sequential search of a linked structure resembles a traversal
@@ -42,13 +47,15 @@ In python we set up nodes and linked structures by using references to objects
                 your item.
 '''
 
-                probe = head
-                while probe != None and targetItem != probe.data:
-                    probe = probe.next
-                if probe != None:
-                    # if you find your item, some other code
-                else:
-                    # target is not in list
+probe = head
+while probe != None and targetItem != probe.data:
+    probe = probe.next
+if probe != None:
+    # if you find your item, some other code
+    print('') # Added to clear error for no code under the if:
+else:
+    # target is not in list
+    print('') # Added to clear error for no code under the else:
 
 '''
 - Accessing our ith item
@@ -57,12 +64,12 @@ In python we set up nodes and linked structures by using references to objects
     Linked stuctures do not support random access
 '''
 
-                # Assumes 0 <= index < n
-                probe = head
-                while index > 0:
-                    probe = probe.next
-                    index -= 1
-                return probe.data
+# Assumes 0 <= index < n
+probe = head
+while index > 0:
+    probe = probe.next
+    index -= 1
+# return probe.data
 
 '''
 Replacement - Also employs this kind of traversal pattern. You search for a given item
@@ -71,20 +78,21 @@ Replacement - Also employs this kind of traversal pattern. You search for a give
                 replacement occurs the operation returns True
 '''
 
-                probe = head
-                while probe != None and targetItem != probe.data:
-                    probe = probe.next
-                if probe != None:
-                    probe.data = newItem
-                    return True
-                else:
-                    return False
+probe = head
+while probe != None and targetItem != probe.data:
+    probe = probe.next
+if probe != None:
+    probe.data = newItem
+    # return True
+else:
+    # return False
+    print('') # Added to clear error for no code under the else:
 
 '''
 Inserting at the Beginning - better than linear complexity operation on a linked structure
 
 '''
-                head = Node(newItem, head)
+head = Node(newItem, head)
 
 
 '''
@@ -94,23 +102,23 @@ Inserting at the End - Consider two cases
                         node and aims its next pointer at the new node.
 '''
 
-                newNode = Node(newItem)
-                if head is None:
-                    head = newNode
-                else:
-                    probe = head
-                    while probe.next != None:
-                        probe = probe.next
-                    probe.next = newNode
+newNode = Node(newItem)
+if head is None:
+    head = newNode
+else:
+    probe = head
+    while probe.next != None:
+        probe = probe.next
+    probe.next = newNode
 
 '''
 Removing at beginning - this operation returns the removed item
 '''
 
-                # Assumes at least one node in the structure
-                removedItem = head.data
-                head = head.next
-                return removedItem
+# Assumes at least one node in the structure
+removedItem = head.data
+head = head.next
+# return removedItem
 
 '''
 Removing at the End - Two cases to consider
@@ -119,17 +127,17 @@ Removing at the End - Two cases to consider
                         node and sets its next pointer to None
 '''
 
-                # Assumes at least on node in structure
-                removedItem = head.data
-                if head.next is None:
-                    head = None
-                else:
-                    probe = head
-                    while probe.next.next != None:
-                        probe = probe.next
-                    removedItem = probe.next.data
-                    probe.next = None
-                return removedItem
+# Assumes at least on node in structure
+removedItem = head.data
+if head.next is None:
+    head = None
+else:
+    probe = head
+    while probe.next.next != None:
+        probe = probe.next
+    removedItem = probe.next.data
+    probe.next = None
+# return removedItem
 
 '''
 Inserting at Any Position - Two cases to consider
@@ -138,15 +146,15 @@ Inserting at Any Position - Two cases to consider
                             The nodes next pointer is not None. That means that 0 < i < n, so you must
                                 place the new item between the node at position i-1 and the node at i
 '''
-                if head is None or index <= 0:
-                    head = Node(newItem, head)
-                else:
-                    probe = head
-                    while index > 1 and probe.next != None:
-                        probe = probe.next
-                        index -= 1
-                    # Insert new node after node at position index -1 of last position
-                    probe.next = Node(newItem, probe.next)
+if head is None or index <= 0:
+    head = Node(newItem, head)
+else:
+    probe = head
+    while index > 1 and probe.next != None:
+        probe = probe.next
+        index -= 1
+    # Insert new node after node at position index -1 of last position
+    probe.next = Node(newItem, probe.next)
 
 '''
 Removing at Any Position - Consider three cases
@@ -155,17 +163,17 @@ Removing at Any Position - Consider three cases
                             i >= n - You remove the last node
 '''
 
-                # Assumes the the linked structure has at least one item
-                if index <= 0 or head.next is None:
-                    removedItem = head.data
-                    head = head.next
-                    return removedItem
-                else:
-                    # Search for node at position index - 1 or next to last position
-                    probe = head
-                    while index > 1 and probe.next.next != None:
-                        probe = probe.next
-                        index -= 1
-                    removedItem = probe.next.data
-                    probe.next = probe.next.next
-                    return removedItem
+# Assumes the the linked structure has at least one item
+if index <= 0 or head.next is None:
+    removedItem = head.data
+    head = head.next
+    # return removedItem
+else:
+    # Search for node at position index - 1 or next to last position
+    probe = head
+    while index > 1 and probe.next.next != None:
+        probe = probe.next
+        index -= 1
+    removedItem = probe.next.data
+    probe.next = probe.next.next
+    # return removedItem
