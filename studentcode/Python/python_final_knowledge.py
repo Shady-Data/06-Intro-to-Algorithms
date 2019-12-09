@@ -16,8 +16,8 @@ Collections:
             (b. File directory system)
 
         4. The == operation for two lists must:
-            a. Compare pairs of items at each position for equality
-            (b. Merely verify that each item in one list is also in the other list)
+            (a. Compare pairs of items at each position for equality)
+            b. Merely verify that each item in one list is also in the other list
 
         5. The map function creates a sequence of the:
             a. Items in a given collection that pass a Boolean test
@@ -33,9 +33,9 @@ Searching, Sorting and Complexity:
                 particular hardware platform and a particular software platform)
         
         2. Counting instructions:
-            a. Provide the same data on different hardware and software platforms
-            (b. Can demonstrate the impracticality of exponential algorithms 
-                with large problem sizes)
+            (a. Provide the same data on different hardware and software platforms)
+            b. Can demonstrate the impracticality of exponential algorithms 
+                with large problem sizes
 
         3. The expressions O(n), O(n^2), and O(k^n) are, respectively:
             a. Exponential, linear, and quadratic
@@ -47,19 +47,19 @@ Searching, Sorting and Complexity:
             (b. Sorted)
 
         5. A selection sort makes at most:
-            (a. n^2 exchanges of data items)
-            b. n exchanges of data items
+            a. n^2 exchanges of data items
+            (b. n exchanges of data items)
 
         6. The best-case behavior of insertion sort and modified bubble sort is:
-            a. Linear
-            (b. Quadratic)
+            (a. Linear)
+            b. Quadratic
             c. Exponential
         
         7. An example of an algorithm whose best-case, average-case, and worst-case
             behaviors are the same is:
             a. Sequential search
-            b. Selection sort
-            (c. Quicksort)
+            (b. Selection sort)
+            c. Quicksort
 
         8. Generally speaking, it is better to:
             a. Tweak an algorithm to shave a few seconds of running time
@@ -123,10 +123,10 @@ Stacks
 
         1. An example of a stack is:
             a. Customers waiting in a checkout line
-            b. A deck of playing cards
+            (b. A deck of playing cards)
             c. A file directory system
             d. A line of cars at a tollbooth
-            (e. Laundry in a hamper)
+            e. Laundry in a hamper
 
         2. The operations that modify a stack are called:
             a. Add and remove
@@ -167,8 +167,8 @@ Trees
             (b. Leaf node)
 
         3. Each level k in a full binary tree contains:
-            (a. 2k nodes)
-            b. 2^k + 1 nodes
+            a. 2k nodes
+            (b. 2^k + 1 nodes)
             c. 2^k - 1 nodes
         
         4. Assume that data are inserted into a binary search tree in the order 
@@ -233,8 +233,8 @@ Recursion
         2. A function is called once from a program’s main function, and then it calls itself four
         times. The depth of recursion is _______________.
             a. one
-            b. four
-            (c. five)
+            (b. four)
+            c. five
             d. nine
 
         3. The part of a problem that can be solved without recursion is the _______________
