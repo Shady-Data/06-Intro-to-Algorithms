@@ -192,65 +192,65 @@ class DoubleLinkedList:
         self.head = self.tail
         self.tail = self.head
 
-    def verify_links(self):
-        # Checks links to verify that head and reach tail and tail can reach head
-        # flags for direction traversal
-        forward = False
-        reverse = False
-        # traverse a probe from the head pointer until the last known link (probe.next == None)
-        probeFor = self.head
-        while probeFor.next != None:
-            probeFor = probeFor.next
-        # if the forward probe is the tail pointer
-        if probeFor == self.tail:
-            forward = True
-        # traverse a probe from the tail pointer until the last known link (probe.prev == None)
-        probeRev = self.tail
-        while probeRev.prev != None:
-            probeRev = probeRev.prev
-        # if the reverse probe is the head pointer
-        if probeRev == self.head:
-            reverse = True
-        # if both forward and reverse are not True
-        if not forward or not reverse:
-            # call the regen_links() function
-            print('Link verification failed: attempting to regenerate broken links')
-            print('Links regenerated:  {}'.format(self.regen_links()))
-            print('Nodes accessible in list:  {}'.format(self.__len__()))
-        else:
-            return True
+    # def verify_links(self):
+    #     # Checks links to verify that head and reach tail and tail can reach head
+    #     # flags for direction traversal
+    #     forward = False
+    #     reverse = False
+    #     # traverse a probe from the head pointer until the last known link (probe.next == None)
+    #     probeFor = self.head
+    #     while probeFor.next != None:
+    #         probeFor = probeFor.next
+    #     # if the forward probe is the tail pointer
+    #     if probeFor == self.tail:
+    #         forward = True
+    #     # traverse a probe from the tail pointer until the last known link (probe.prev == None)
+    #     probeRev = self.tail
+    #     while probeRev.prev != None:
+    #         probeRev = probeRev.prev
+    #     # if the reverse probe is the head pointer
+    #     if probeRev == self.head:
+    #         reverse = True
+    #     # if both forward and reverse are not True
+    #     if not forward or not reverse:
+    #         # call the regen_links() function
+    #         print('Link verification failed: attempting to regenerate broken links')
+    #         print('Links regenerated:  {}'.format(self.regen_links()))
+    #         print('Nodes accessible in list:  {}'.format(self.__len__()))
+    #     else:
+    #         return True
 
-    def regen_links(self):
-        # sets the broken next and/or prev pointers on a nodes fix the linked list # can be resource intesive
-        probeFor = self.head
-        all_nodes_forward = []
-        # traverse through the linked list, from the head, grabbing each node and appending them to a list
-        while probeFor != None:
-            all_nodes_forward.append(probeFor) # expected [node_0, node_1, node_2, ...]
-            probeFor = probeFor.next
-        all_nodes_reverse = []
-        probeRev = self.tail
-        # traverse through the linked list, from the tail, grabbing each node and inserting them to the front of the list
-        while probeRev != None:
-            all_nodes_reverse.insert(0, probeRev) # expected [node_0, node_1, node_2, ...]
-            probeRev = probeRev.prev
-        # initialize two index values to compare items by
-        indexFor = 0
-        indexRev = 0
-        matchIndFor = -1
-        matchIndRev = -1
-        # find the first node that corresponds in both lists
-        while indexFor < len(all_nodes_forward) and all_nodes_forward[indexFor] != all_nodes_reverse[0]:
-            indexFor += 1
-        # if a corresponding node is found
-        if all_nodes_forward[indexFor] == all_nodes_reverse[0]:
-            matchIndFor = indexFor
-        # if no forward nodes match the first reverse node (i.e. indexFor == len(all_nodes_forward)), compare each reverse node until a match occurs
-        elif indexFor == len(all_nodes_forward):
-            # reset the forward index
-            indexFor = 0
-            while indexRev < len(all_nodes_reverse) and all_nodes_reverse[indexRev] != all_nodes_forward[indexFor]:
-                print('WIP')
+    # def regen_links(self):
+    #     # sets the broken next and/or prev pointers on a nodes fix the linked list # can be resource intesive
+    #     probeFor = self.head
+    #     all_nodes_forward = []
+    #     # traverse through the linked list, from the head, grabbing each node and appending them to a list
+    #     while probeFor != None:
+    #         all_nodes_forward.append(probeFor) # expected [node_0, node_1, node_2, ...]
+    #         probeFor = probeFor.next
+    #     all_nodes_reverse = []
+    #     probeRev = self.tail
+    #     # traverse through the linked list, from the tail, grabbing each node and inserting them to the front of the list
+    #     while probeRev != None:
+    #         all_nodes_reverse.insert(0, probeRev) # expected [node_0, node_1, node_2, ...]
+    #         probeRev = probeRev.prev
+    #     # initialize two index values to compare items by
+    #     indexFor = 0
+    #     indexRev = 0
+    #     matchIndFor = -1
+    #     matchIndRev = -1
+    #     # find the first node that corresponds in both lists
+    #     while indexFor < len(all_nodes_forward) and all_nodes_forward[indexFor] != all_nodes_reverse[0]:
+    #         indexFor += 1
+    #     # if a corresponding node is found
+    #     if all_nodes_forward[indexFor] == all_nodes_reverse[0]:
+    #         matchIndFor = indexFor
+    #     # if no forward nodes match the first reverse node (i.e. indexFor == len(all_nodes_forward)), compare each reverse node until a match occurs
+    #     elif indexFor == len(all_nodes_forward):
+    #         # reset the forward index
+    #         indexFor = 0
+    #         while indexRev < len(all_nodes_reverse) and all_nodes_reverse[indexRev] != all_nodes_forward[indexFor]:
+    #             print('WIP')
 
     def count_ocurrences(self, value):
         # initialize a count accumalator

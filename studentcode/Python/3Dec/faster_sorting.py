@@ -55,7 +55,7 @@ def partition(my_list, left, right):
             swap(my_list, index, boundary)
             boundary += 1
     # Exchange the pivot item and the boundary item
-    swap (my_list, right, boundary)
+    swap(my_list, right, boundary)
     return boundary
 
 # The swap function
